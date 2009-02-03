@@ -1,0 +1,21 @@
+{% extends "base.html" %} 
+{% block menu %} 
+           <ul>
+           <li> {{ username }} </li>
+           <li> <a href="{{ logoutUri }}">logout</a> </li>
+           </ul>
+{% endblock %}
+{% block content %}
+           <ul>
+           {% for entry in entries %}
+               <li>
+                  <img src="{{ entry.service.iconUrl }}" title="{{ entry.service.name }}"
+                  <a href="{{ entry.link }}">{{ entry.title }}</a>
+                      by {{ entry.user.nickname }}
+                      {% if entry.via %}
+                      via {{ entry.via.name }}
+                      {% endif %}
+               </li>
+           {% endfor %}
+           </ul>
+{% endblock %}

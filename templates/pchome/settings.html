@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% block menu %} 
+           <ul>
+           <li> {{ username }} </li>
+           <li> <a href="/settings">Settings</a> </li>
+           <li> <a href="{{ logoutUri }}">logout</a> </li>
+           </ul>
+{% endblock %}
+{% block content %}
+	<p>
+	Input your friendfeed infomation. We need your friendfeed remote key for getting your friendfeed.
+        <a href="https://friendfeed.com/account/api" target="_blank">check your remote key</a>.
+	</p>
+
+        {% if result %}
+        <span class="result">{{ result }}</span>
+        {% endif %}
+	
+	<form action="/settings" method="post">
+		<label>your nickname:</label><input type="text" name="ff_nickname" value="{{ nickname }}"><br />
+		<label>your remote key:</label><input type="text" name="ff_remotekey" value="{{ remotekey }}">
+                <input type="submit" value="ok">
+	</form>
+        
+        <p>
+        If your remote key be changed, please tell me this form again.
+        </p>
+{% endblock %}

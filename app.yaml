@@ -1,0 +1,10 @@
+application: mobilefeed
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /[^m]*
+  script: pchome.py
+- url: /m/.*
+  script: mobile.py
